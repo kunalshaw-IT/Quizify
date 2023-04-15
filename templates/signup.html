@@ -1,0 +1,44 @@
+{% include 'partials/another_header.html' %}
+    
+<div class="form-signin w-100 m-auto">
+
+  
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-warning alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    
+    
+    
+  <form method="POST" action="/signup">
+    {% csrf_token %}
+    
+    <h1 class="h3 mb-3 fw-normal">Sign up</h1>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" name="username" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Username</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" name="password" id="floatingPassword1" placeholder="Password">
+      <label for="floatingPassword1">Password</label>
+    </div>
+    <div class="form-floating">
+        <input type="password" class="form-control" name="rpassword" id="floatingPassword2" placeholder="Retype Password">
+        <label for="floatingPassword2">Retype Password</label>
+    </div>
+
+    
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+
+    <p class="mt-5 mb-3 text-muted">Have an account?<a href="/login"> Log in</a></p>
+  </form>
+</div>
+  </body>
+</html>
